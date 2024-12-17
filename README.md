@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# BookingHub-Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![React](https://img.shields.io/badge/React-17+-brightgreen)
 
-## Available Scripts
+BookingHub-Frontend e' una applicazione React ideata per gestire le operazione di CRUD di Hotels/B&B e delle relative prenotazioni
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Indice
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [Introduzione](#introduzione)
+- [Caratteristiche](#caratteristiche)
+- [Requisiti](#requisiti)
+- [Installazione](#installazione)
+- [Utilizzo](#utilizzo)
+- [Test](#test)
+- [Deployment](#deployment)
+- [Licenza](#licenza)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Introduzione
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**BookingHub-Frontend** è una piattaforma per la prenotazione online di hotels. Questo progetto sfrutta React per il frontend e prevede due ruoli applicativi principali guest e admin.
 
-### `npm run build`
+## Caratteristiche
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Interfaccia utente dinamica sviluppata con React
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Requisiti
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Node.js** 20+
+- **Git**
 
-### `npm run eject`
+## Installazione
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Segui questi passaggi per configurare l'applicazione in locale, l'hosting del codice sorgente e' su github (https://github.com/bugman80/bookinghub-frontend).
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Clona il repository
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+git clone https://github.com/username/NomeProgetto.git
+cd NomeProgetto
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Installa le dipendenze frontend e fa partire il frontend
 
-## Learn More
+```bash
+npm install
+npm run
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Utilizzo
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+L'utilizzo della applicazione per ora e' limitato a un numero di utenti minimo.
 
-### Code Splitting
+## Test
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+L'applicazione presenta una suite di tests che vengono eseguiti tramite GitHub actions.
 
-### Analyzing the Bundle Size
+## Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+L'applicazione e' momentaneamente rilasciata su Railway (https://railway.app/).
 
-### Making a Progressive Web App
+## Licenza
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Nessuna licenza e' associata alla applicazione.
