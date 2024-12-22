@@ -127,13 +127,13 @@ const Services = () => {
           {services.map((service) => (
             <div
               key={service.id}
-              className="p-6 bg-white shadow-md rounded-lg flex justify-between items-center"
+              className="p-6 bg-white shadow-md rounded-lg flex items-center space-x-6"
             >
-              <div>
-                <p className="text-gray-700">Nome: {service.name}</p>
+              <div className="flex-1">
+                <p className="text-lg font-semibold text-blue-600">Nome: {service.name}</p>
                 <p className="text-gray-700">Descrizione: {service.description}</p>
               </div>
-              <div className="flex space-x-4">
+              <div className="flex flex-col space-y-2">
                 <button
                   onClick={() => startEditService(service)}
                   className="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600"

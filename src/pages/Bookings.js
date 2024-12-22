@@ -61,19 +61,6 @@ const Bookings = () => {
     return Object.keys(errors).length === 0;
   };
 
-  // Funzione per creare una nuova prenotazione
-  const createBooking = async () => {
-    if(validate()){
-      try {
-        const response = await client.post('/api/bookings/', bookingForm);
-        setBookings([...bookings, response.data]);
-        setBookingForm(clean_form);
-      } catch (error) {
-        setErrors(error.response.data);
-      }
-    }
-  };
-
   // Funzione per mostrare la notifica toast in caso di errore
   function showGeneralError(errorMessage) {
     const errorContainer = document.getElementById('error-container');
@@ -95,6 +82,22 @@ const Bookings = () => {
     }, 3000);
   }
 
+  // Funzione per creare una nuova prenotazione
+  const createBooking = async () => {
+    if(validate()){
+      try {
+        const response = await client.post('/api/bookings/', bookingForm);
+        setBookings([...bookings, response.data]);
+        setBookingForm(clean_form);
+      } catch (error) {
+        if(error.response.data.description){
+          showGeneralError(error.response.data.description);
+        }
+        setErrors(error.response.data);
+      }
+    }
+  };
+
   // Funzione per eliminare una prenotazione
   const deleteBooking = async (bookingId) => {
     try {
@@ -113,7 +116,7 @@ const Bookings = () => {
       });
       fetchBookings();
     } catch (error) {
-      showGeneralError(error.response.data.description)
+      showGeneralError(error.response.data.description);
       console.error('Error updating booking status:', error);
     }
   };
@@ -141,6 +144,10 @@ const Bookings = () => {
         setIsEditing(false);
         setEditBookingId(null);
       } catch (error) {
+        if(error.response.data.description){
+          showGeneralError(error.response.data.description);
+        }
+        setErrors(error.response.data);
         console.error('Error updating booking:', error);
       }
     }
@@ -210,38 +217,37 @@ const Bookings = () => {
           {bookings.map((booking) => (
             <div
               key={booking.id}
-              className="p-6 bg-white shadow-md rounded-lg flex justify-between items-center"
+              className="p-6 bg-white shadow-md rounded-lg flex items-center space-x-6"
             >
-              <div>
-                <h2 className="text-xl font-semibold text-blue-600">{hotels.find(hotel => hotel.id === booking.hotel) && hotels.find(hotel => hotel.id === booking.hotel).name}</h2>
-                <p className="text-gray-700">
-                  Arrivo: {booking.check_in} | Partenza: {booking.check_out}
-                </p>
+              <div className="flex-1">
+                <h2 className="text-xl font-semibold text-blue-600">
+                  {hotels.find(hotel => hotel.id === booking.hotel)?.name || 'Hotel non trovato'}
+                </h2>
+                <p className="text-gray-700">Arrivo: {booking.check_in} | Partenza: {booking.check_out}</p>
                 <p className="text-gray-700">Ospiti: {booking.guests}</p>
-                <p className="text-gray-700">Prezzo: {booking.total_price}</p>
+                <p className="text-gray-700">Prezzo: €{booking.total_price}</p>
                 <p className="text-gray-700">Stato: {booking.status}</p>
                 <p className="text-gray-700">Utente: {booking.user_email}</p>
               </div>
-              <div className="flex space-x-4">
-                {booking.status==="pending" && (
+              <div className="flex flex-col space-y-2">
+                {booking.status === "pending" && (
                   <>
-                  {is_superuser && (
-                    <>
-                      <button
-                        onClick={() => changeBookingStatus(booking.id, 'approved')}
-                        className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
-                      >
-                        Approva
-                      </button>
-                      <button
-                        onClick={() => changeBookingStatus(booking.id, 'rejected')}
-                        className="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600"
-                      >
-                        Rigetta
-                      </button>
-                    </>
-                  )}
-                  <>
+                    {is_superuser && (
+                      <>
+                        <button
+                          onClick={() => changeBookingStatus(booking.id, 'approved')}
+                          className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+                        >
+                          Approva
+                        </button>
+                        <button
+                          onClick={() => changeBookingStatus(booking.id, 'rejected')}
+                          className="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600"
+                        >
+                          Rigetta
+                        </button>
+                      </>
+                    )}
                     <button
                       onClick={() => startEditBooking(booking)}
                       className="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600"
@@ -255,7 +261,6 @@ const Bookings = () => {
                       Elimina
                     </button>
                   </>
-                </>
                 )}
               </div>
             </div>

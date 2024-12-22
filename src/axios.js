@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 
 // Crea un'istanza di Axios e la configura per puntare al backend
 const client = axios.create({
@@ -36,21 +35,17 @@ client.interceptors.response.use(
     response => response,
     async error => {
         const originalRequest = error.config;
-        if (error.response && (error.response.status === 401 || error.response.status === 403) && !originalRequest._retry) {
-            // Evita il ciclo infinito
-            originalRequest._retry = true;
-
+        if (error.response && (error.response.status === 401 || error.response.status === 403) && originalRequest.url !== 'api/token/refresh/') {
             const newAccessToken = await refreshToken();
             if (newAccessToken) {
                 // Aggiorna l'access token e riprova la richiesta originale
                 originalRequest.headers['Authorization'] = `Bearer ${newAccessToken}`;
                 return client(originalRequest);
             } else {
-                const navigate = useNavigate();
-                navigate('/login');
+                window.location.href = '/login';
+                return Promise.reject(error);
             }
         }
-        
         // Se il refresh fallisce propaga l'errore
         return Promise.reject(error);
     }
