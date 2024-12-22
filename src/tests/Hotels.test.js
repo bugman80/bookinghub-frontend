@@ -139,7 +139,7 @@ describe('Hotels', () => {
         const inputCitta = screen.getByPlaceholderText('Citta\'');
         const inputPaese = screen.getByPlaceholderText('Paese');
         const inputCamere = screen.getByPlaceholderText('Numero di Camere');
-        const inputPrezzo = screen.getByPlaceholderText('Prezzo per notte');
+        const inputPrezzo = screen.getByPlaceholderText('Prezzo per notte (Euro)');
         const fileInput = screen.getByLabelText(/Seleziona Immagine/i);
         
         const file = new File(['contenuto del file'], 'immagine.jpg', { type: 'image/jpeg' });

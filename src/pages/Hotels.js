@@ -286,7 +286,7 @@ const Hotels = () => {
           {errors.total_rooms && <p style={{ color: 'red' }}>{errors.total_rooms}</p>}
           <input
             type="number"
-            placeholder="Prezzo per notte in euro"
+            placeholder="Prezzo per notte (Euro)"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
             className="border p-2 w-full"
