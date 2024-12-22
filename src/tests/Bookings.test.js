@@ -33,10 +33,10 @@ describe('Bookings', () => {
         // Verifico che la lista delle prenotazioni sia visualizzata
         await waitFor(() => expect(screen.queryByText('Arrivo: 2024-10-28 | Partenza: 2024-10-30')).toBeInTheDocument());
         await waitFor(() => expect(screen.queryByText('Ospiti: 3')).toBeInTheDocument());
-        await waitFor(() => expect(screen.queryByText('Prezzo: 140.00')).toBeInTheDocument());
+        await waitFor(() => expect(screen.queryByText('Prezzo: €140.00')).toBeInTheDocument());
         await waitFor(() => expect(screen.queryByText('Arrivo: 2024-10-01 | Partenza: 2024-10-11')).toBeInTheDocument());
         await waitFor(() => expect(screen.queryByText('Ospiti: 5')).toBeInTheDocument());
-        await waitFor(() => expect(screen.queryByText('Prezzo: 1000.00')).toBeInTheDocument());
+        await waitFor(() => expect(screen.queryByText('Prezzo: €1000.00')).toBeInTheDocument());
     });
     it('visualizza la lista delle prenotazioni per gli utenti admin', async () => {
         const userData = {
