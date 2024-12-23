@@ -356,40 +356,47 @@ const Hotels = () => {
               key={hotel.id}
               className="p-6 bg-white shadow-md rounded-lg flex items-center space-x-6"
             >
-              {hotel.image && (
-                <img
-                  src={hotel.image}
-                  alt="Hotel"
-                  className="w-32 h-32 object-cover rounded-md shadow-md"
-                />
-              )}
+              {/* Contenitore immagine e testo a sinistra */}
               <div className="flex-1">
-                <h2 className="text-xl font-semibold text-blue-600">{hotel.name}</h2>
-                <p className="text-gray-700">{hotel.location}</p>
-                <p className="text-gray-700">{hotel.description}</p>
-                <p className="text-gray-700">Telefono: {hotel.phone_number}</p>
-                <p className="text-gray-700">Email: {hotel.email}</p>
-                <p className="text-gray-700">
-                  Servizi: {hotel.services
-                    .map((id) =>
-                      services.find((service) => service.id === id)
-                    )
-                    .filter((service) => service)
-                    .map((service) => service.name)
-                    .join(", ")}
-                </p>
+                <div>
+                  <h2 className="text-xl font-semibold text-blue-600">{hotel.name}</h2>
+                  <p className="text-gray-700">{hotel.location}</p>
+                  <p className="text-gray-700">{hotel.description}</p>
+                  <p className="text-gray-700">Telefono: {hotel.phone_number}</p>
+                  <p className="text-gray-700">Email: {hotel.email}</p>
+                  <p className="text-gray-700">
+                    Servizi: {hotel.services
+                      .map((id) =>
+                        services.find((service) => service.id === id)
+                      )
+                      .filter((service) => service)
+                      .map((service) => service.name)
+                      .join(", ")}
+                  </p>
+                </div>
+                {hotel.image && (
+                  <div className="mt-4">
+                    <img
+                      src={hotel.image}
+                      alt="Hotel"
+                      className="w-64 h-32 object-cover rounded-md shadow-md"
+                    />
+                  </div>
+                )}
               </div>
+
+              {/* Contenitore bottoni a destra, centrati verticalmente */}
               {is_superuser && (
-                <div className="flex flex-col space-y-2">
+                <div className="flex flex-col items-center space-y-2">
                   <button
                     onClick={() => startEditHotel(hotel)}
-                    className="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600"
+                    className="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 w-full"
                   >
                     Modifica
                   </button>
                   <button
                     onClick={() => deleteHotel(hotel.id)}
-                    className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+                    className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 w-full"
                   >
                     Elimina
                   </button>
