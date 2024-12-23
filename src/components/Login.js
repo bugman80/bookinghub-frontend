@@ -53,8 +53,8 @@ const Login = () => {
           </div>
         </div>
       ) : (
-        <div className="flex justify-center items-center h-screen">
-          <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md w-1/3">
+        <div className="flex justify-center items-center min-h-screen px-4">
+          <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md w-full max-w-md">
             <h2 className="text-2xl font-semibold text-center text-gray-800">Entra</h2>
             {error && <p className="text-red-500">{error}</p>}
             <div className="mb-4">
@@ -96,7 +96,7 @@ const Login = () => {
               Non hai un account? Registrati
             </button>
           </form>
-          </div>
+        </div>
       )}
     </>
   );
