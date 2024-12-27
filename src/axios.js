@@ -42,8 +42,11 @@ client.interceptors.response.use(
                 originalRequest.headers['Authorization'] = `Bearer ${newAccessToken}`;
                 return client(originalRequest);
             } else {
-                window.location.href = '/login';
-                return Promise.reject(error);
+                if(window.location.href.includes("login")){
+                    return Promise.reject(error);
+                }else{
+                    return window.location.href = '/login';
+                }
             }
         }
         // Se il refresh fallisce propaga l'errore

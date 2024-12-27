@@ -356,7 +356,6 @@ const Hotels = () => {
               key={hotel.id}
               className="p-6 bg-white shadow-md rounded-lg flex items-center space-x-6"
             >
-              {/* Contenitore immagine e testo a sinistra */}
               <div className="flex-1">
                 <div>
                   <h2 className="text-xl font-semibold text-blue-600">{hotel.name}</h2>
@@ -384,8 +383,6 @@ const Hotels = () => {
                   </div>
                 )}
               </div>
-
-              {/* Contenitore bottoni a destra, centrati verticalmente */}
               {is_superuser && (
                 <div className="flex flex-col items-center space-y-2">
                   <button
