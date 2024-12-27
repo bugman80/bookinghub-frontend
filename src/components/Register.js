@@ -35,8 +35,12 @@ function Register() {
       }
     } catch (error) {
       if (error.response) {
+        let msg = ""
+        if(error.response.data.email){
+          msg = "Un utente con questa email esiste gia'"
+        }
         // Errore ricevuto dalla risposta del server
-        setError(error.response.data.detail || "Errore nella registrazione.");
+        setError(msg || "Errore nella registrazione.");
       } else {
         // Errore generico di rete
         setError("Errore nella registrazione. Riprova più tardi.");
