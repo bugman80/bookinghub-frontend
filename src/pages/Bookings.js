@@ -230,18 +230,18 @@ const Bookings = () => {
                 <p className="text-gray-700">Utente: {booking.user_email}</p>
               </div>
               <div className="flex flex-col space-y-2">
-                {booking.status === "pending" && (
+                {booking.status === "verifica" && (
                   <>
                     {is_superuser && (
                       <>
                         <button
-                          onClick={() => changeBookingStatus(booking.id, 'approved')}
+                          onClick={() => changeBookingStatus(booking.id, 'approvata')}
                           className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
                         >
                           Approva
                         </button>
                         <button
-                          onClick={() => changeBookingStatus(booking.id, 'rejected')}
+                          onClick={() => changeBookingStatus(booking.id, 'rigettata')}
                           className="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600"
                         >
                           Rigetta

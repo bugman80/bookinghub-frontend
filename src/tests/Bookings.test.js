@@ -16,8 +16,8 @@ describe('Bookings', () => {
         };
         jest.spyOn(apis, "getUserData").mockReturnValue(userData);
         // Simula la risposta per la chiamata che recupera la lista delle prenotazioni
-        const mockBookings = {"data":[{ "id": 2, "check_in": "2024-10-28", "check_out": "2024-10-30", "guests": 3, "total_price": "140.00", "status": "pending", "created_at": "2024-10-27T08:48:58.254816Z", "updated_at": "2024-10-27T08:48:58.254877Z", "hotel": 2, "user": 2 }, 
-                                { "id": 1, "check_in": "2024-10-01", "check_out": "2024-10-11", "guests": 5, "total_price": "1000.00", "status": "pending", "created_at": "2024-10-26T10:10:36.347566Z", "updated_at": "2024-10-26T15:55:21.976290Z", "hotel": 1, "user": 1 } ]};
+        const mockBookings = {"data":[{ "id": 2, "check_in": "2024-10-28", "check_out": "2024-10-30", "guests": 3, "total_price": "140.00", "status": "verifica", "created_at": "2024-10-27T08:48:58.254816Z", "updated_at": "2024-10-27T08:48:58.254877Z", "hotel": 2, "user": 2 }, 
+                                { "id": 1, "check_in": "2024-10-01", "check_out": "2024-10-11", "guests": 5, "total_price": "1000.00", "status": "verifica", "created_at": "2024-10-26T10:10:36.347566Z", "updated_at": "2024-10-26T15:55:21.976290Z", "hotel": 1, "user": 1 } ]};
         axios.get.mockResolvedValueOnce(mockBookings);
 
         // Simula la risposta per la chiamata che recupera la lista degli hotels
@@ -48,7 +48,7 @@ describe('Bookings', () => {
         };
         jest.spyOn(apis, "getUserData").mockReturnValue(userData);
         // Simula la risposta per la chiamata che recupera la lista delle prenotazioni
-        const mockBookings = {"data":[{ "id": 2, "check_in": "2024-10-28", "check_out": "2024-10-30", "guests": 3, "total_price": "140.00", "status": "pending", "created_at": "2024-10-27T08:48:58.254816Z", "updated_at": "2024-10-27T08:48:58.254877Z", "hotel": 2, "user": 2 }, 
+        const mockBookings = {"data":[{ "id": 2, "check_in": "2024-10-28", "check_out": "2024-10-30", "guests": 3, "total_price": "140.00", "status": "verifica", "created_at": "2024-10-27T08:48:58.254816Z", "updated_at": "2024-10-27T08:48:58.254877Z", "hotel": 2, "user": 2 }, 
             { "id": 1, "check_in": "2024-10-01", "check_out": "2024-10-11", "guests": 5, "total_price": "1000.00", "status": "accepted", "created_at": "2024-10-26T10:10:36.347566Z", "updated_at": "2024-10-26T15:55:21.976290Z", "hotel": 1, "user": 1 } ]};
         axios.get.mockResolvedValueOnce(mockBookings);
 
@@ -58,8 +58,8 @@ describe('Bookings', () => {
         axios.get.mockResolvedValueOnce(mockHotels);
 
         render(<Bookings />);
-        // Verifico le prenotazioni in pending abbiano il tasto accept/reject
-        await waitFor(() => expect(screen.queryByText('Stato: pending')).toBeInTheDocument());
+        // Verifico le prenotazioni in verifica abbiano il tasto accept/reject
+        await waitFor(() => expect(screen.queryByText('Stato: verifica')).toBeInTheDocument());
         const buttonsAccept = await waitFor(() => screen.getAllByRole('button', { name: 'Approva' }));
         const buttonsReject = await waitFor(() => screen.getAllByRole('button', { name: 'Rigetta' }));
         expect(buttonsAccept).toHaveLength(1);
@@ -80,8 +80,8 @@ describe('Bookings', () => {
         };
         jest.spyOn(apis, "getUserData").mockReturnValue(userData);
         // Simula la risposta per la chiamata che recupera la lista delle prenotazioni
-        const mockBookings = {"data":[{ "id": 2, "check_in": "2024-10-28", "check_out": "2024-10-30", "guests": 3, "total_price": "140.00", "status": "pending", "created_at": "2024-10-27T08:48:58.254816Z", "updated_at": "2024-10-27T08:48:58.254877Z", "hotel": 2, "user": 2 }, 
-            { "id": 1, "check_in": "2024-10-01", "check_out": "2024-10-11", "guests": 3, "total_price": "1000.00", "status": "pending", "created_at": "2024-10-26T10:10:36.347566Z", "updated_at": "2024-10-26T15:55:21.976290Z", "hotel": 1, "user": 1 } ]};
+        const mockBookings = {"data":[{ "id": 2, "check_in": "2024-10-28", "check_out": "2024-10-30", "guests": 3, "total_price": "140.00", "status": "verifica", "created_at": "2024-10-27T08:48:58.254816Z", "updated_at": "2024-10-27T08:48:58.254877Z", "hotel": 2, "user": 2 }, 
+            { "id": 1, "check_in": "2024-10-01", "check_out": "2024-10-11", "guests": 3, "total_price": "1000.00", "status": "verifica", "created_at": "2024-10-26T10:10:36.347566Z", "updated_at": "2024-10-26T15:55:21.976290Z", "hotel": 1, "user": 1 } ]};
         axios.get.mockResolvedValueOnce(mockBookings);
 
         // Simula la risposta per la chiamata che recupera la lista degli hotels
@@ -118,8 +118,8 @@ describe('Bookings', () => {
         };
         jest.spyOn(apis, "getUserData").mockReturnValue(userData);
         // Simula la risposta per la chiamata che recupera la lista delle prenotazioni
-        const mockBookings = {"data":[{ "id": 2, "check_in": "2024-10-28", "check_out": "2024-10-30", "guests": 3, "total_price": "140.00", "status": "pending", "created_at": "2024-10-27T08:48:58.254816Z", "updated_at": "2024-10-27T08:48:58.254877Z", "hotel": 2, "user": 2 }, 
-            { "id": 1, "check_in": "2024-10-01", "check_out": "2024-10-11", "guests": 3, "total_price": "1000.00", "status": "pending", "created_at": "2024-10-26T10:10:36.347566Z", "updated_at": "2024-10-26T15:55:21.976290Z", "hotel": 1, "user": 1 } ]};
+        const mockBookings = {"data":[{ "id": 2, "check_in": "2024-10-28", "check_out": "2024-10-30", "guests": 3, "total_price": "140.00", "status": "verifica", "created_at": "2024-10-27T08:48:58.254816Z", "updated_at": "2024-10-27T08:48:58.254877Z", "hotel": 2, "user": 2 }, 
+            { "id": 1, "check_in": "2024-10-01", "check_out": "2024-10-11", "guests": 3, "total_price": "1000.00", "status": "verifica", "created_at": "2024-10-26T10:10:36.347566Z", "updated_at": "2024-10-26T15:55:21.976290Z", "hotel": 1, "user": 1 } ]};
         axios.get.mockResolvedValueOnce(mockBookings);
 
         // Simula la risposta per la chiamata che recupera la lista degli hotels
@@ -127,7 +127,7 @@ describe('Bookings', () => {
                 {"id":2,"image_url":"/hotels/hotel1_juBMUCQ.jpg","name":"Hotel Madonnina","description":"nel centro di Milano, il miglior hotel dove soggiornare","address":"Via della madonnina, 12","phone_number":"02-234234234","email":"hotel.milan@hotel.it","city":"Milano","country":"Italia","total_rooms":20,"price_per_night":"70.00","image":"http://localhost:8000/hotels/hotel1_juBMUCQ.jpg","is_active":true,"created_at":"2024-10-27T08:44:28.113114Z","updated_at":"2024-10-27T09:07:42.338549Z","services":[3,1]}]};
         axios.get.mockResolvedValueOnce(mockHotels);
         
-        const bookingData = { "id": 3, "check_in": "2024-11-20", "check_out": "2024-11-25", "guests": "10", "total_price": "500.00", "status": "pending", "created_at": "2024-10-26T10:10:36.347566Z", "updated_at": "2024-10-26T15:55:21.976290Z", "hotel": 1, "user": 1 };
+        const bookingData = { "id": 3, "check_in": "2024-11-20", "check_out": "2024-11-25", "guests": "10", "total_price": "500.00", "status": "verifica", "created_at": "2024-10-26T10:10:36.347566Z", "updated_at": "2024-10-26T15:55:21.976290Z", "hotel": 1, "user": 1 };
         const mockNewBooking = {"data": bookingData};
         axios.post.mockResolvedValueOnce(mockNewBooking);
     
@@ -166,8 +166,8 @@ describe('Bookings', () => {
         };
         jest.spyOn(apis, "getUserData").mockReturnValue(userData);
         // Simula la risposta per la chiamata che recupera la lista delle prenotazioni
-        const mockBookings = {"data":[{ "id": 2, "check_in": "2024-10-28", "check_out": "2024-10-30", "guests": 3, "total_price": "140.00", "status": "pending", "created_at": "2024-10-27T08:48:58.254816Z", "updated_at": "2024-10-27T08:48:58.254877Z", "hotel": 2, "user": 2 }, 
-            { "id": 1, "check_in": "2024-10-01", "check_out": "2024-10-11", "guests": 3, "total_price": "1000.00", "status": "pending", "created_at": "2024-10-26T10:10:36.347566Z", "updated_at": "2024-10-26T15:55:21.976290Z", "hotel": 1, "user": 1 } ]};
+        const mockBookings = {"data":[{ "id": 2, "check_in": "2024-10-28", "check_out": "2024-10-30", "guests": 3, "total_price": "140.00", "status": "verifica", "created_at": "2024-10-27T08:48:58.254816Z", "updated_at": "2024-10-27T08:48:58.254877Z", "hotel": 2, "user": 2 }, 
+            { "id": 1, "check_in": "2024-10-01", "check_out": "2024-10-11", "guests": 3, "total_price": "1000.00", "status": "verifica", "created_at": "2024-10-26T10:10:36.347566Z", "updated_at": "2024-10-26T15:55:21.976290Z", "hotel": 1, "user": 1 } ]};
         axios.get.mockResolvedValueOnce(mockBookings);
 
         // Simula la risposta per la chiamata che recupera la lista degli hotels
