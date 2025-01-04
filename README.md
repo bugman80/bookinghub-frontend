@@ -1,8 +1,9 @@
 # BookingHub-Frontend
 
+![NodeJS](https://img.shields.io/badge/NodeJS-18+-brightgreen)
 ![React](https://img.shields.io/badge/React-17+-brightgreen)
 
-BookingHub-Frontend e' una applicazione React ideata per gestire le operazione di CRUD di Hotels/B&B e delle relative prenotazioni
+BookingHub-Frontend e' una applicazione React ideata per gestire le operazioni di CRUD di Utenti, Hotels/B&B e dei relativi Servizi e Prenotazioni, pensata per interfacciarsi con le API RESTful esposte dall'applicazione di backend BookingHub-Backend (https://github.com/bugman80/bookinghub-backend) 
 
 ---
 
@@ -10,10 +11,8 @@ BookingHub-Frontend e' una applicazione React ideata per gestire le operazione d
 
 - [Introduzione](#introduzione)
 - [Caratteristiche](#caratteristiche)
-- [Requisiti](#requisiti)
+- [Prerequisiti](#prerequisiti)
 - [Installazione](#installazione)
-- [Utilizzo](#utilizzo)
-- [Test](#test)
 - [Deployment](#deployment)
 - [Licenza](#licenza)
 
@@ -21,46 +20,88 @@ BookingHub-Frontend e' una applicazione React ideata per gestire le operazione d
 
 ## Introduzione
 
-**BookingHub-Frontend** è una piattaforma per la prenotazione online di hotels. Questo progetto sfrutta React per il frontend e prevede due ruoli applicativi principali guest e admin.
+**BookingHub-Frontend** rappresenta la componente frontend di un progetto composto da backend e frontend (https://github.com/bugman80/bookinghub-backend), per facilitare il setup e run dell'ambiente di sviluppo e' stato creato un repository contenente un docker-compose che consente di orchestrare entrambi i layer ed il database PostgreSQL (https://github.com/bugman80/bookinghub-dev-environment)
 
 ## Caratteristiche
 
 - Interfaccia utente dinamica sviluppata con React
 
-## Requisiti
+## Prerequisiti
 
-- **Node.js** 20+
 - **Git**
+- **Docker**
+- **Docker-Compose**
 
 ## Installazione
 
-Segui questi passaggi per configurare l'applicazione in locale, l'hosting del codice sorgente e' su github (https://github.com/bugman80/bookinghub-frontend).
+Segui questi passaggi per configurare l'applicazione in locale, questo comportera' clonare il repository backend, il repository frontend ed il repository contenente l'orchestratore dei servizi. I tre repository devono essere clonati nella stessa directory che avra' quindi la seguente struttura finale:
 
-### Clona il repository
+```
+/bookinghub-dev-environment/   # Clone del repository di orchestrazione
+|
+├── docker-compose.yml
+├── .env
+└── README.md
 
-```bash
-git clone https://github.com/username/NomeProgetto.git
-cd NomeProgetto
+/bookinghub-backend/           # Clone del repository backend
+/bookinghub-frontend/          # Clone del repository frontend
 ```
 
-### Installa le dipendenze frontend e fa partire il frontend
+### 1. Entra nella directory che hai scelto per contenere i tre repository di progetto
 
 ```bash
-npm install
-npm run
+cd CartellaDiPreferenza
 ```
 
-## Utilizzo
+### 2. Clona il repository backend
 
-L'utilizzo della applicazione per ora e' limitato a un numero di utenti minimo.
+```bash
+git clone https://github.com/bugman80/bookinghub-backend.git
+```
 
-## Test
+### 3. Clona il repository frontend
 
-L'applicazione presenta una suite di tests che vengono eseguiti tramite GitHub actions.
+```bash
+git clone https://github.com/bugman80/bookinghub-frontend.git
+```
+
+### 4. Clona il repository di orchestrazione e configura le variabili di ambiente
+
+```bash
+git clone https://github.com/bugman80/bookinghub-dev-environment.git
+cd bookinghub-dev-environment
+```
+Crea un file `.env` nella root di questo repository (rifacendoti a `.env.example`) per definire le variabili di ambiente
+
+### 5. Costruisci e Avvia i Servizi
+
+Esegui il seguente comando per costruire e avviare i servizi:
+
+```bash
+docker-compose up
+```
+
+Questo comando:
+- Costruirà le immagini per backend e frontend
+- Avvierà i servizi backend, frontend e il database PostgreSQL
+
+### 6. Accedi ai Servizi
+
+- **Frontend**: [http://localhost:3000](http://localhost:3000)
+- **Backend (API)**: [http://localhost:8000](http://localhost:8000)
+- **PostgreSQL**: Accessibile sulla porta `5432`
+
+### 7. Arrestare i Servizi
+
+Per arrestare i servizi, premi `Ctrl+C` o esegui:
+
+```bash
+docker-compose down
+```
 
 ## Deployment
 
-L'applicazione e' momentaneamente rilasciata su Railway (https://railway.app/).
+L'applicazione e' attualmente rilasciata automaticamente su Railway (https://railway.app/).
 
 ## Licenza
 
