@@ -71,7 +71,7 @@ git clone https://github.com/bugman80/bookinghub-frontend.git
 git clone https://github.com/bugman80/bookinghub-dev-environment.git
 cd bookinghub-dev-environment
 ```
-Crea un file `.env` nella root di questo repository (rifacendoti a `.env.example`) per definire le variabili di ambiente
+Crea un file `.env` nella root di questo repository (rifacendoti a `.env.example`) per definire le variabili di ambiente (le variabili relative a Gmail sono opzionali, se si vuole attivare l'invio di notifiche email e' necessario configurare un account Gmail esistente o crearne uno ad hoc e configurarlo: https://support.google.com/a/answer/176600?hl=en)
 
 ### 5. Costruisci e Avvia i Servizi
 
