@@ -359,8 +359,8 @@ const Hotels = () => {
               <div className="flex-1">
                 <div>
                   <h2 className="text-xl font-semibold text-blue-600">{hotel.name}</h2>
-                  <p className="text-gray-700">{hotel.description}</p>
-                  <p className="text-gray-700">{hotel.address}, {hotel.city}, {hotel.country}</p>
+                  <p className="text-gray-700 italic">{hotel.description}</p>
+                  <p className="text-gray-700">Indirizzo: {hotel.address}, {hotel.city}, {hotel.country}</p>
                   <p className="text-gray-700">Telefono: {hotel.phone_number}</p>
                   <p className="text-gray-700">Email: {hotel.email}</p>
                   <p className="text-gray-700">Prezzo per notte: €{hotel.price_per_night}</p>
