@@ -130,8 +130,8 @@ const Services = () => {
               className="p-6 bg-white shadow-md rounded-lg flex items-center space-x-6"
             >
               <div className="flex-1">
-                <p className="text-lg font-semibold text-blue-600">Nome: {service.name}</p>
-                <p className="text-gray-700">Descrizione: {service.description}</p>
+                <p className="text-lg font-semibold text-blue-600">{service.name}</p>
+                <p className="text-gray-700">{service.description}</p>
               </div>
               <div className="flex flex-col space-y-2">
                 <button
