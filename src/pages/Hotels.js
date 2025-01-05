@@ -363,6 +363,7 @@ const Hotels = () => {
                   <p className="text-gray-700">{hotel.description}</p>
                   <p className="text-gray-700">Telefono: {hotel.phone_number}</p>
                   <p className="text-gray-700">Email: {hotel.email}</p>
+                  <p className="text-gray-700">Prezzo per notte: €{hotel.price_per_night}</p>
                   <p className="text-gray-700">
                     Servizi: {hotel.services
                       .map((id) =>
