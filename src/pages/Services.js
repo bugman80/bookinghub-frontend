@@ -131,7 +131,7 @@ const Services = () => {
             >
               <div className="flex-1">
                 <p className="text-lg font-semibold text-blue-600">{service.name}</p>
-                <p className="text-gray-700">{service.description}</p>
+                <p className="text-gray-700 italic">{service.description}</p>
               </div>
               <div className="flex flex-col space-y-2">
                 <button
