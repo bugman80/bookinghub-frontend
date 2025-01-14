@@ -8,6 +8,7 @@ import Hotels from './pages/Hotels';
 import Bookings from './pages/Bookings';
 import Services from './pages/Services';
 import Users from './pages/Users';
+import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/services" element={<PrivateRoute element={Services} />} />
             <Route path="/bookings" element={<PrivateRoute element={Bookings} />} />
             <Route path="/users" element={<PrivateRoute element={Users} />} />
+            <Route path="*" element={<NotFoundPage />} /> 
           </Routes>
         </div>
       </div>
