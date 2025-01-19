@@ -37,7 +37,7 @@ const Users = () => {
     <div>
       <h1 className="text-3xl font-bold mb-6">Utenti</h1>
       {/* Lista degli utenti */}
-      {users.length === 0 ? (
+      {!users || users.length === 0 ? (
         <p className="text-gray-600">Nessun Utente.</p>
       ) : (
         <div className="space-y-6">

@@ -120,7 +120,7 @@ const Services = () => {
         </div>
       </div>
 
-      {services.length === 0 ? (
+      {!services || services.length === 0 ? (
         <p className="text-gray-600">Nessun Servizio.</p>
       ) : (
         <div className="space-y-6">

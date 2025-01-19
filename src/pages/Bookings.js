@@ -210,7 +210,7 @@ const Bookings = () => {
       </div>
 
       {/* Lista delle prenotazioni */}
-      {bookings.length === 0 ? (
+      {bookings?.length === 0 ? (
         <p className="text-gray-600">Nessuna Prenotazione.</p>
       ) : (
         <div className="space-y-6">

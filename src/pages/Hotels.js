@@ -347,7 +347,7 @@ const Hotels = () => {
       </div>
       )}
       {/* Lista degli hotel */}
-      {hotels.length === 0 ? (
+      {!hotels || hotels.length === 0 ? (
         <p className="text-gray-600">Nessun Hotel.</p>
       ) : (
         <div className="space-y-6">
