@@ -377,7 +377,11 @@ const Hotels = () => {
                 {hotel.image && (
                   <div className="mt-4">
                     <img
-                      src={hotel.image}
+                      src={
+                        window.location.protocol === "https:" && hotel.image?.startsWith("http:")
+                          ? hotel.image.replace(/^http:/, "https:")
+                          : hotel.image
+                      }
                       alt="Hotel"
                       className="w-64 h-32 object-cover rounded-md shadow-md"
                     />
