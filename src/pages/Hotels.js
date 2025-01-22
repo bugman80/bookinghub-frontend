@@ -292,7 +292,7 @@ const Hotels = () => {
             className="border p-2 w-full"
           />
           {errors.price_per_night && <p style={{ color: 'red' }}>{errors.price_per_night}</p>}
-          {services.map(service => (
+          {services?.map(service => (
             <div key={service.id} className="flex items-center mb-2">
               <input
                 type="checkbox"

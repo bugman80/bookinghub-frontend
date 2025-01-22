@@ -169,7 +169,7 @@ const Bookings = () => {
             className="border p-2 w-full"
           >
             <option value="">Scegli l'Hotel</option>
-            {hotels.map((hotel) => (
+            {hotels?.map((hotel) => (
               <option key={hotel.id} value={hotel.id}>
                 {hotel.name}
               </option>
@@ -210,7 +210,7 @@ const Bookings = () => {
       </div>
 
       {/* Lista delle prenotazioni */}
-      {bookings?.length === 0 ? (
+      {!bookings || bookings.length === 0 ? (
         <p className="text-gray-600">Nessuna Prenotazione.</p>
       ) : (
         <div className="space-y-6">
